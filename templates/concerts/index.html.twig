@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Concerts</h1>
+    
+    {% for concert in concerts %}
+        {{ concert.title }}
+    {% endfor %}
+{% endblock %}
