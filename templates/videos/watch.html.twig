@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Videos</h1>
+    
+    {% if video is not null %}
+        {{ video.uniqid }}
+    {% endif %}
+    
+    {% for video in videos %}
+        {{ video.uniqid }}
+    {% endfor %}
+{% endblock %}
