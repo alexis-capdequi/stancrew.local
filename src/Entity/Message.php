@@ -29,7 +29,7 @@ class Message
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $phone_number;
+    private $phoneNumber;
 
     /**
      * @ORM\Column(type="text")
@@ -39,7 +39,7 @@ class Message
     /**
      * @ORM\Column(type="datetime")
      */
-    private $sending_date;
+    private $sendingDate;
 
     public function getId(): ?int
     {
@@ -72,12 +72,12 @@ class Message
 
     public function getPhoneNumber(): ?string
     {
-        return $this->phone_number;
+        return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(?string $phone_number): self
+    public function setPhoneNumber(?string $phoneNumber): self
     {
-        $this->phone_number = $phone_number;
+        $this->phoneNumber = $phoneNumber;
 
         return $this;
     }
@@ -96,12 +96,12 @@ class Message
 
     public function getSendingDate(): ?\DateTimeInterface
     {
-        return $this->sending_date;
+        return $this->sendingDate;
     }
 
-    public function setSendingDate(\DateTimeInterface $sending_date): self
+    public function setSendingDate(\DateTimeInterface $sendingDate): self
     {
-        $this->sending_date = $sending_date;
+        $this->sendingDate = $sendingDate;
 
         return $this;
     }

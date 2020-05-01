@@ -34,7 +34,7 @@ class Music
     /**
      * @ORM\Column(type="datetime")
      */
-    private $publication_date;
+    private $publicationDate;
 
     public function getId(): ?int
     {
@@ -79,12 +79,12 @@ class Music
 
     public function getPublicationDate(): ?\DateTimeInterface
     {
-        return $this->publication_date;
+        return $this->publicationDate;
     }
 
-    public function setPublicationDate(\DateTimeInterface $publication_date): self
+    public function setPublicationDate(\DateTimeInterface $publicationDate): self
     {
-        $this->publication_date = $publication_date;
+        $this->publicationDate = $publicationDate;
 
         return $this;
     }

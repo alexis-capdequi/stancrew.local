@@ -39,12 +39,12 @@ class Concert
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $postal_code;
+    private $postalCode;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $reservation_link;
+    private $reservationLink;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -106,24 +106,24 @@ class Concert
 
     public function getPostalCode(): ?string
     {
-        return $this->postal_code;
+        return $this->postalCode;
     }
 
-    public function setPostalCode(string $postal_code): self
+    public function setPostalCode(string $postalCode): self
     {
-        $this->postal_code = $postal_code;
+        $this->postalCode = $postalCode;
 
         return $this;
     }
 
     public function getReservationLink(): ?string
     {
-        return $this->reservation_link;
+        return $this->reservationLink;
     }
 
-    public function setReservationLink(?string $reservation_link): self
+    public function setReservationLink(?string $reservationLink): self
     {
-        $this->reservation_link = $reservation_link;
+        $this->reservationLink = $reservationLink;
 
         return $this;
     }
