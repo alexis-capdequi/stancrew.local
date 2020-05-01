@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Musiques</h1>
+    
+    {% for music in musics %}
+        {{ music.uniqid }}
+    {% endfor %}
+{% endblock %}
