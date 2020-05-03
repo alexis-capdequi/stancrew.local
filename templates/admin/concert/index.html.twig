@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<title>Concert index</title>
+
+{% block body %}
+    <h1>Concert index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Datetime</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>PostalCode</th>
+                <th>ReservationLink</th>
+                <th>Comment</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for concert in concerts %}
+            <tr>
+                <td>{{ concert.id }}</td>
+                <td>{{ concert.title }}</td>
+                <td>{{ concert.datetime ? concert.datetime|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ concert.address }}</td>
+                <td>{{ concert.city }}</td>
+                <td>{{ concert.postalCode }}</td>
+                <td>{{ concert.reservationLink }}</td>
+                <td>{{ concert.comment }}</td>
+                <td>
+                    <a href="{{ path('admin_concert_show', {'id': concert.id}) }}">show</a>
+                    <a href="{{ path('admin_concert_edit', {'id': concert.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_concert_new') }}">Create new</a>
+{% endblock %}

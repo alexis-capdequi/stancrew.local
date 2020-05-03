@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<title>Concert</title>
+
+{% block body %}
+    <h1>Concert</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ concert.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ concert.title }}</td>
+            </tr>
+            <tr>
+                <th>Datetime</th>
+                <td>{{ concert.datetime ? concert.datetime|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ concert.address }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ concert.city }}</td>
+            </tr>
+            <tr>
+                <th>PostalCode</th>
+                <td>{{ concert.postalCode }}</td>
+            </tr>
+            <tr>
+                <th>ReservationLink</th>
+                <td>{{ concert.reservationLink }}</td>
+            </tr>
+            <tr>
+                <th>Comment</th>
+                <td>{{ concert.comment }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_concert_index') }}">back to list</a>
+
+    <a href="{{ path('admin_concert_edit', {'id': concert.id}) }}">edit</a>
+
+    {{ include('admin/concert/_delete_form.html.twig') }}
+{% endblock %}

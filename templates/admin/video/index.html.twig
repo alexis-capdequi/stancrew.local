@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<title>Video index</title>
+
+{% block body %}
+    <h1>Video index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Uniqid</th>
+                <th>Title</th>
+                <th>Link</th>
+                <th>PublicationDate</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>File</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for video in videos %}
+            <tr>
+                <td>{{ video.id }}</td>
+                <td>{{ video.uniqid }}</td>
+                <td>{{ video.title }}</td>
+                <td>{{ video.link }}</td>
+                <td>{{ video.publicationDate ? video.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ video.description }}</td>
+                <td>{{ video.type }}</td>
+                <td>{{ video.file }}</td>
+                <td>
+                    <a href="{{ path('admin_video_show', {'id': video.id}) }}">show</a>
+                    <a href="{{ path('admin_video_edit', {'id': video.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_video_new') }}">Create new</a>
+{% endblock %}

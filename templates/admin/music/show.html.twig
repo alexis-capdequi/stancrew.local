@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<title>Music</title>
+
+{% block body %}
+    <h1>Music</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ music.id }}</td>
+            </tr>
+            <tr>
+                <th>Uniqid</th>
+                <td>{{ music.uniqid }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ music.title }}</td>
+            </tr>
+            <tr>
+                <th>File</th>
+                <td>{{ music.file }}</td>
+            </tr>
+            <tr>
+                <th>PublicationDate</th>
+                <td>{{ music.publicationDate ? music.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_music_index') }}">back to list</a>
+
+    <a href="{{ path('admin_music_edit', {'id': music.id}) }}">edit</a>
+
+    {{ include('admin/music/_delete_form.html.twig') }}
+{% endblock %}
