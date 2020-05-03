@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+{% extends 'admin/base.html.twig' %}
 
-<title>New Video</title>
+{% block title %}
+    {{ parent() }} - Videos
+{% endblock %}
 
-{% block body %}
+{% block container %}
     <h1>Create new Video</h1>
 
     {{ include('admin/video/_form.html.twig') }}
 
-    <a href="{{ path('admin_video_index') }}">back to list</a>
+    <a href="{{ path('admin_video_index') }}" class="btn btn-secondary">back to list</a>
 {% endblock %}

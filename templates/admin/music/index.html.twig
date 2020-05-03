@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+{% extends 'admin/base.html.twig' %}
 
-<title>Music index</title>
+{% block title %}
+    {{ parent() }} - Musiques
+{% endblock %}
 
-{% block body %}
+{% block container %}
     <h1>Music index</h1>
 
-    <table class="table">
+    <table class="table table-striped mt-4">
         <thead>
             <tr>
                 <th>Id</th>
@@ -13,7 +15,7 @@
                 <th>Title</th>
                 <th>File</th>
                 <th>PublicationDate</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -23,10 +25,10 @@
                 <td>{{ music.uniqid }}</td>
                 <td>{{ music.title }}</td>
                 <td>{{ music.file }}</td>
-                <td>{{ music.publicationDate ? music.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('admin_music_show', {'id': music.id}) }}">show</a>
-                    <a href="{{ path('admin_music_edit', {'id': music.id}) }}">edit</a>
+                <td class="text-nowrap">{{ music.publicationDate ? music.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td class="text-nowrap">
+                    <a href="{{ path('admin_music_edit', {'id': music.id}) }}" class="btn btn-secondary">edit</a>
+                    {{ include('admin/music/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
@@ -37,5 +39,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_music_new') }}">Create new</a>
+    <a href="{{ path('admin_music_new') }}" class="btn btn-primary">Create new</a>
 {% endblock %}

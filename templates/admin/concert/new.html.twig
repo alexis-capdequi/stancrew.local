@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+{% extends 'admin/base.html.twig' %}
 
-<title>New Concert</title>
+{% block title %}
+    {{ parent() }} - Musiques
+{% endblock %}
 
-{% block body %}
+{% block container %}
     <h1>Create new Concert</h1>
 
     {{ include('admin/concert/_form.html.twig') }}
 
-    <a href="{{ path('admin_concert_index') }}">back to list</a>
+    <a href="{{ path('admin_concert_index') }}" class="btn btn-secondary">back to list</a>
 {% endblock %}
