@@ -16,7 +16,6 @@ class MessageType extends AbstractType
             ->add('sender')
             ->add('phoneNumber')
             ->add('content')
-            ->add('sendingDate')
         ;
     }
 

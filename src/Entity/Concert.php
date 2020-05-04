@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ConcertRepository")
@@ -38,11 +39,19 @@ class Concert
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex(
+     *      pattern ="/^[0-9]{5,5}$/",
+     *      message ="The postal code '{{ value }}' is not a valid postal code."
+     * )
      */
     private $postalCode;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url(
+     *      protocols   = {"http", "https", "ftp"},
+     *      message     = "The url '{{ value }}' is not a valid url",
+     * )
      */
     private $reservationLink;
 

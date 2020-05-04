@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MessageRepository")
@@ -23,11 +24,18 @@ class Message
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(
+     *      message="The email '{{ value }}' is not a valid email."
+     * )
      */
     private $sender;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Regex(
+     *      pattern ="/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/",
+     *      message ="The phone number '{{ value }}' is not a valid phone number."
+     * )
      */
     private $phoneNumber;
 

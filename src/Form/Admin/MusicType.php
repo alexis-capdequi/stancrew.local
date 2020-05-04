@@ -12,10 +12,8 @@ class MusicType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('uniqid')
             ->add('title')
             ->add('file')
-            ->add('publicationDate')
         ;
     }
 

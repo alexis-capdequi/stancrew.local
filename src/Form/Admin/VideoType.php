@@ -12,10 +12,8 @@ class VideoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('uniqid')
             ->add('title')
             ->add('link')
-            ->add('publicationDate')
             ->add('description')
             ->add('type')
             ->add('file')
