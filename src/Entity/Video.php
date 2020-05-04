@@ -30,7 +30,9 @@ class Video
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Url(
-     *      message = "The url '{{ value }}' is not a valid url",
+     *      protocols   = {"http", "https", "ftp"},
+     *      message     = "The url '{{ value }}' is not a valid url",
+     * )
      */
     private $link;
 
