@@ -48,6 +48,7 @@ class Video
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Choice({"preview", "clip", "concert"})
      */
     private $type;
 
