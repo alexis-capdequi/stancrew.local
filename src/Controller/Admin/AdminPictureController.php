@@ -38,6 +38,8 @@ class AdminPictureController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($picture);
             $entityManager->flush();
+            
+            $this->addFlash('success', 'Your entity has been created');
 
             return $this->redirectToRoute('admin_picture_index');
         }
@@ -48,15 +50,15 @@ class AdminPictureController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="admin_picture_show", methods={"GET"})
-     */
-    public function show(Picture $picture): Response
-    {
-        return $this->render('admin/picture/show.html.twig', [
-            'picture' => $picture,
-        ]);
-    }
+    //    /**
+    //     * @Route("/{id}", name="admin_picture_show", methods={"GET"})
+    //     */
+    //    public function show(Picture $picture): Response
+    //    {
+    //        return $this->render('admin/picture/show.html.twig', [
+    //            'picture' => $picture,
+    //        ]);
+    //    }
 
     /**
      * @Route("/{id}/edit", name="admin_picture_edit", methods={"GET","POST"})
@@ -68,7 +70,9 @@ class AdminPictureController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            
+            $this->addFlash('success', 'Your changes were saved');
+            
             return $this->redirectToRoute('admin_picture_index');
         }
 
@@ -87,6 +91,8 @@ class AdminPictureController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($picture);
             $entityManager->flush();
+            
+            $this->addFlash('success', 'Your entity has been deleted');
         }
 
         return $this->redirectToRoute('admin_picture_index');

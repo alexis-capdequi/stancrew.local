@@ -38,7 +38,9 @@ class AdminVideoController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($video);
             $entityManager->flush();
-
+            
+            $this->addFlash('success', 'Your entity has been created');
+            
             return $this->redirectToRoute('admin_video_index');
         }
 
@@ -48,15 +50,15 @@ class AdminVideoController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="admin_video_show", methods={"GET"})
-     */
-    public function show(Video $video): Response
-    {
-        return $this->render('admin/video/show.html.twig', [
-            'video' => $video,
-        ]);
-    }
+    //    /**
+    //     * @Route("/{id}", name="admin_video_show", methods={"GET"})
+    //     */
+    //    public function show(Video $video): Response
+    //    {
+    //        return $this->render('admin/video/show.html.twig', [
+    //            'video' => $video,
+    //        ]);
+    //    }
 
     /**
      * @Route("/{id}/edit", name="admin_video_edit", methods={"GET","POST"})
@@ -68,7 +70,9 @@ class AdminVideoController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            
+            $this->addFlash('success', 'Your changes were saved');
+            
             return $this->redirectToRoute('admin_video_index');
         }
 
@@ -87,6 +91,8 @@ class AdminVideoController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($video);
             $entityManager->flush();
+            
+            $this->addFlash('success', 'Your entity has been deleted');
         }
 
         return $this->redirectToRoute('admin_video_index');

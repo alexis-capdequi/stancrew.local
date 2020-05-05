@@ -38,7 +38,9 @@ class AdminMusicController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($music);
             $entityManager->flush();
-
+            
+            $this->addFlash('success', 'Your entity has been created');
+            
             return $this->redirectToRoute('admin_music_index');
         }
 
@@ -48,15 +50,15 @@ class AdminMusicController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="admin_music_show", methods={"GET"})
-     */
-    public function show(Music $music): Response
-    {
-        return $this->render('admin/music/show.html.twig', [
-            'music' => $music,
-        ]);
-    }
+    //    /**
+    //     * @Route("/{id}", name="admin_music_show", methods={"GET"})
+    //     */
+    //    public function show(Music $music): Response
+    //    {
+    //        return $this->render('admin/music/show.html.twig', [
+    //            'music' => $music,
+    //        ]);
+    //    }
 
     /**
      * @Route("/{id}/edit", name="admin_music_edit", methods={"GET","POST"})
@@ -68,7 +70,9 @@ class AdminMusicController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            
+            $this->addFlash('success', 'Your changes were saved');
+            
             return $this->redirectToRoute('admin_music_index');
         }
 
@@ -87,6 +91,8 @@ class AdminMusicController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($music);
             $entityManager->flush();
+            
+            $this->addFlash('success', 'Your entity has been deleted');
         }
 
         return $this->redirectToRoute('admin_music_index');

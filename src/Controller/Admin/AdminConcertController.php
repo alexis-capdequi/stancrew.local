@@ -38,7 +38,9 @@ class AdminConcertController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($concert);
             $entityManager->flush();
-
+            
+            $this->addFlash('success', 'Your entity has been created');
+            
             return $this->redirectToRoute('admin_concert_index');
         }
 
@@ -47,16 +49,16 @@ class AdminConcertController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-    /**
-     * @Route("/{id}", name="admin_concert_show", methods={"GET"})
-     */
-    public function show(Concert $concert): Response
-    {
-        return $this->render('admin/concert/show.html.twig', [
-            'concert' => $concert,
-        ]);
-    }
+    
+    //    /**
+    //     * @Route("/{id}", name="admin_concert_show", methods={"GET"})
+    //     */
+    //    public function show(Concert $concert): Response
+    //    {
+    //        return $this->render('admin/concert/show.html.twig', [
+    //            'concert' => $concert,
+    //        ]);
+    //    }
 
     /**
      * @Route("/{id}/edit", name="admin_concert_edit", methods={"GET","POST"})
@@ -68,7 +70,9 @@ class AdminConcertController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            
+            $this->addFlash('success', 'Your changes were saved');
+            
             return $this->redirectToRoute('admin_concert_index');
         }
 
@@ -87,6 +91,8 @@ class AdminConcertController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($concert);
             $entityManager->flush();
+            
+            $this->addFlash('success', 'Your entity has been deleted');
         }
 
         return $this->redirectToRoute('admin_concert_index');

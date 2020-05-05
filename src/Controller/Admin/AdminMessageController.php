@@ -38,7 +38,9 @@ class AdminMessageController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($message);
             $entityManager->flush();
-
+            
+            $this->addFlash('success', 'Your entity has been created');
+            
             return $this->redirectToRoute('admin_message_index');
         }
 
@@ -48,15 +50,15 @@ class AdminMessageController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="admin_message_show", methods={"GET"})
-     */
-    public function show(Message $message): Response
-    {
-        return $this->render('admin/message/show.html.twig', [
-            'message' => $message,
-        ]);
-    }
+    //    /**
+    //     * @Route("/{id}", name="admin_message_show", methods={"GET"})
+    //     */
+    //    public function show(Message $message): Response
+    //    {
+    //        return $this->render('admin/message/show.html.twig', [
+    //            'message' => $message,
+    //        ]);
+    //    }
 
     /**
      * @Route("/{id}/edit", name="admin_message_edit", methods={"GET","POST"})
@@ -68,7 +70,9 @@ class AdminMessageController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            
+            $this->addFlash('success', 'Your changes were saved');
+            
             return $this->redirectToRoute('admin_message_index');
         }
 
@@ -87,6 +91,8 @@ class AdminMessageController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($message);
             $entityManager->flush();
+            
+            $this->addFlash('success', 'Your entity has been deleted');
         }
 
         return $this->redirectToRoute('admin_message_index');
