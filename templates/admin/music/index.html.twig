@@ -19,7 +19,8 @@
                 <th>Id</th>
                 <th>Uniqid</th>
                 <th>Title</th>
-                <th>File</th>
+                <th>Mp3</th>
+                <th>Ogg</th>
                 <th>PublicationDate</th>
                 <th>Actions</th>
             </tr>
@@ -30,7 +31,8 @@
                 <td>{{ music.id }}</td>
                 <td>{{ music.uniqid }}</td>
                 <td>{{ music.title }}</td>
-                <td>{{ music.file }}</td>
+                <td>{{ music.mp3FileName }}</td>
+                <td>{{ music.oggFileName }}</td>
                 <td class="text-nowrap">{{ music.publicationDate ? music.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td class="text-nowrap">
                     <a href="{{ path('admin_music_edit', {'id': music.id}) }}" class="btn btn-secondary">edit</a>

@@ -18,7 +18,7 @@
             <tr>
                 <th>Id</th>
                 <th>Uniqid</th>
-                <th>File</th>
+                <th>Image</th>
                 <th>PublicationDate</th>
                 <th>Comment</th>
                 <th>Actions</th>
@@ -29,7 +29,7 @@
             <tr>
                 <td>{{ picture.id }}</td>
                 <td>{{ picture.uniqid }}</td>
-                <td>{{ picture.file }}</td>
+                <td>{{ picture.imageName }}</td>
                 <td class="text-nowrap">{{ picture.publicationDate ? picture.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ picture.comment }}</td>
                 <td class="text-nowrap">

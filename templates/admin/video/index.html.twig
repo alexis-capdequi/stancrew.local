@@ -23,7 +23,7 @@
                 <th>PublicationDate</th>
                 <th>Description</th>
                 <th>Type</th>
-                <th>File</th>
+                <th>Image</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -37,7 +37,7 @@
                 <td class="text-nowrap">{{ video.publicationDate ? video.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ video.description }}</td>
                 <td>{{ video.type }}</td>
-                <td>{{ video.file }}</td>
+                <td>{{ video.imageName }}</td>
                 <td class="text-nowrap">
                     <a href="{{ path('admin_video_edit', {'id': video.id}) }}" class="btn btn-secondary">edit</a>
                     {{ include('admin/video/_delete_form.html.twig') }}

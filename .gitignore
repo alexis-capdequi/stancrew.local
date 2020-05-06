@@ -16,4 +16,11 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+
+###> netbeans ###
 /nbproject/private/
+###< netbeans ###
+
+###> public ###
+/public/files/
+###< public ###

@@ -5,7 +5,10 @@ namespace App\Form\Admin;
 use App\Entity\Video;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class VideoType extends AbstractType
@@ -23,7 +26,17 @@ class VideoType extends AbstractType
                     'concert' => 'concert'
                 ]
             ])
-            ->add('file')
+            ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+                $video = $event->getData();
+                $form = $event->getForm();
+
+                if (!$video || null === $video->getId()) {
+                    $form->add('image', FileType::class);
+                }
+                else {
+                    $form->add('image', FileType::class, array('required' => false));
+                }
+            })
         ;
     }
 
