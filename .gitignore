@@ -24,3 +24,6 @@
 ###> public ###
 /public/files/
 ###< public ###
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###
