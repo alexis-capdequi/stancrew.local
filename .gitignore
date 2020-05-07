@@ -21,9 +21,14 @@
 /nbproject/private/
 ###< netbeans ###
 
+###< src ###
+/src/DataFixtures/UserFixtures.php
+###< src ###
+
 ###> public ###
 /public/files/
 ###< public ###
+
 ###> liip/imagine-bundle ###
 /public/media/cache/
 ###< liip/imagine-bundle ###
