@@ -29,7 +29,7 @@
             <tr>
                 <td>{{ picture.id }}</td>
                 <td>{{ picture.uniqid }}</td>
-                <td>{{ picture.imageName }}</td>
+                <td><img src="{{ vich_uploader_asset(picture, 'image') | imagine_filter('thumb') }}"/></td>
                 <td class="text-nowrap">{{ picture.publicationDate ? picture.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ picture.comment }}</td>
                 <td class="text-nowrap">

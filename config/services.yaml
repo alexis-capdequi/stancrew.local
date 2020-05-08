@@ -28,3 +28,7 @@ services:
     App\EventSubscriber\CompleteSubscriber:
         tags:
             - { name: 'doctrine.event_subscriber' }
+
+    App\EventSubscriber\ImageCacheSubscriber:
+        tags:
+            - { name: 'doctrine.event_subscriber' }
