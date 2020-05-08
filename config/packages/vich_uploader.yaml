@@ -8,16 +8,16 @@ vich_uploader:
             namer: Vich\UploaderBundle\Naming\UniqidNamer
         
         video_image:
-            uri_prefix: /images/video
+            uri_prefix: /files/upload/images/video
             upload_destination: '%kernel.project_dir%/public/files/upload/images/video'
             namer: Vich\UploaderBundle\Naming\UniqidNamer
             
         music_mp3_file:
-            uri_prefix: /music/mp3
+            uri_prefix: /files/upload/music/mp3
             upload_destination: '%kernel.project_dir%/public/files/upload/music/mp3'
             namer: Vich\UploaderBundle\Naming\UniqidNamer
             
         music_ogg_file:
-            uri_prefix: /music/ogg
+            uri_prefix: /files/upload/music/ogg
             upload_destination: '%kernel.project_dir%/public/files/upload/music/ogg'
             namer: Vich\UploaderBundle\Naming\UniqidNamer
