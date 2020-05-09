@@ -26,6 +26,7 @@ class ConcertType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Concert::class,
+            'translation_domain' => 'forms'
         ]);
     }
 }

@@ -45,6 +45,7 @@ class MusicType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Music::class,
+            'translation_domain' => 'forms'
         ]);
     }
 }
