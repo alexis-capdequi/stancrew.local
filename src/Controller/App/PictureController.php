@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\App;
 
 use App\Repository\PictureRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,7 +18,7 @@ class PictureController extends AbstractController
      */
     public function index(PictureRepository $pictureRepository): Response
     {   
-        return $this->render('pictures/index.html.twig', [
+        return $this->render('app\pictures/index.html.twig', [
             'pictures' => $pictureRepository->findAllOrderByIdDesc()
         ]);
     }

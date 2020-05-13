@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\App;
 
 use App\Entity\Message;
-use App\Form\MessageType;
+use App\Form\App\MessageType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,7 +31,7 @@ class ContactController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->render('contact/index.html.twig', [
+        return $this->render('app/contact/index.html.twig', [
             'message' => $message,
             'form' => $form->createView(),
         ]);

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\App;
 
 use App\Repository\ConcertRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,7 +18,7 @@ class ConcertController extends AbstractController
      */
     public function index(ConcertRepository $concertRepository): Response
     {
-        return $this->render('concerts/index.html.twig', [
+        return $this->render('app/concerts/index.html.twig', [
             'concerts' => $concertRepository->findAllOrderByIdDesc(),
         ]);
     }

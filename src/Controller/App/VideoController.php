@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\App;
 
 use App\Repository\VideoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,7 +19,7 @@ class VideoController extends AbstractController
      */
     public function index(VideoRepository $videoRepository): Response
     {
-        return $this->render('videos/list.html.twig', [
+        return $this->render('app/videos/list.html.twig', [
             'videos' => $videoRepository->findAllOrderByIdDesc(),
         ]);
     }
@@ -35,7 +35,7 @@ class VideoController extends AbstractController
             array('id' => 'desc')
         );
         
-        return $this->render('videos/list.html.twig', [
+        return $this->render('app/videos/list.html.twig', [
             'videos' => $videos,
         ]);
     }
@@ -62,7 +62,7 @@ class VideoController extends AbstractController
             array('uniqid' => $uniqid)
         );
         
-        return $this->render('videos/watch.html.twig', [
+        return $this->render('app/videos/watch.html.twig', [
             'videos' => $videos,
             'video' => $video
         ]);

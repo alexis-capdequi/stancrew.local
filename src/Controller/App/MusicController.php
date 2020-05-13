@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\App;
 
 use App\Repository\MusicRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,7 +18,7 @@ class MusicController extends AbstractController
      */
     public function index(MusicRepository $musicRepository): Response
     {
-        return $this->render('musics/player.html.twig', [
+        return $this->render('app\musics/player.html.twig', [
             'musics' => $musicRepository->findAllOrderByIdDesc(),
         ]);
     }
