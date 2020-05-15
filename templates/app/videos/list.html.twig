@@ -1,8 +1,6 @@
-{% extends 'app/base.html.twig' %}
+{% extends app.request.XmlHttpRequest ? 'app/base_ajax.html.twig' : 'app/base.html.twig' %}
 
-{% block body %}
-    <h1>Videos</h1>
-    
+{% block data_container %}
     {% for video in videos %}
         {{ video.uniqid }}
     {% endfor %}

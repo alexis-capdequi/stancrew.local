@@ -18,7 +18,7 @@ class ConcertController extends AbstractController
      */
     public function index(ConcertRepository $concertRepository): Response
     {
-        return $this->render('app/concerts/index.html.twig', [
+        return $this->render('app/concerts/list.html.twig', [
             'concerts' => $concertRepository->findAllOrderByIdDesc(),
         ]);
     }

@@ -31,7 +31,7 @@ class ContactController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->render('app/contact/index.html.twig', [
+        return $this->render('app/contact/form.html.twig', [
             'message' => $message,
             'form' => $form->createView(),
         ]);

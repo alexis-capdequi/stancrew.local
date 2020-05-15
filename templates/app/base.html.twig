@@ -3,10 +3,24 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div id="container" class="container-fluid">
+            {{ include('app/components/nav.html.twig') }}
+
+            <section>
+                <div class="titre-section"></div>
+                <div id="data-container">
+                    {% block data_container %}{% endblock %}
+                </div>
+            </section>
+        </div>
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
     </body>
 </html>

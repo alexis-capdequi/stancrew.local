@@ -1,11 +1,7 @@
 {% extends app.request.XmlHttpRequest ? 'app/base_ajax.html.twig' : 'app/base.html.twig' %}
 
 {% block data_container %}
-    {% if video is not null %}
-        {{ video.uniqid }}
-    {% endif %}
-
-    {% for video in videos %}
-        {{ video.uniqid }}
+    {% for concert in concerts %}
+        {{ concert.title }}
     {% endfor %}
 {% endblock %}

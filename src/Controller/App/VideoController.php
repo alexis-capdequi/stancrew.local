@@ -28,6 +28,7 @@ class VideoController extends AbstractController
      * @Route("/{type}", name="app_videos_bytype", requirements={"type"="previews|clips|concerts"}))
      * @return Response
      */
+    /*
     public function videosByType(string $type, VideoRepository $videoRepository): Response
     {
         $videos = $videoRepository->findBy(
@@ -39,6 +40,7 @@ class VideoController extends AbstractController
             'videos' => $videos,
         ]);
     }
+    */
     
     /**
      * @Route("/watch", name="app_videos_watch")

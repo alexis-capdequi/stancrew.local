@@ -18,7 +18,7 @@ class PictureController extends AbstractController
      */
     public function index(PictureRepository $pictureRepository): Response
     {   
-        return $this->render('app\pictures/index.html.twig', [
+        return $this->render('app/pictures/list.html.twig', [
             'pictures' => $pictureRepository->findAllOrderByIdDesc()
         ]);
     }
